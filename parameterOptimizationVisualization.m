@@ -58,9 +58,9 @@ for subjectNum=1:size(subjectPool,2)
 
 index=1;
 for i=1:sizeofGamma
-    qualityFunction(1:sizeofOmega,i)= data(index:index+sizeofOmega-1,5);
-    variance(1:sizeofOmega,i)= data(index:index+sizeofOmega-1,4);
-    zscore(1:sizeofOmega,i)= data(index:index+sizeofOmega-1,1);
+    zscore(1:sizeofOmega,i)= similarityEstimations(index:index+sizeofOmega-1,1);
+    variance(1:sizeofOmega,i)= similarityEstimations(index:index+sizeofOmega-1,2);
+    qualityFunction(1:sizeofOmega,i)= similarityEstimations{}(index:index+sizeofOmega-1,3);
     index=index+sizeofOmega;
 end
     
