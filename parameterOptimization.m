@@ -12,7 +12,7 @@ function  parameterOptimization
 %    - LouvainCommunutiyEstimate.m by Mucha et al. (2010)
 %    - zrand.m by Bassett et al. (2013)
 %    - flexibility.m by Bassett et al. (2013)#
-% 
+%    - optimizationComparisons.m by me ;)
 %
 % Isil Bilgin 10/07/2018
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
