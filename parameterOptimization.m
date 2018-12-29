@@ -69,7 +69,7 @@ end
     end  
 end
      
-clear data communityAssignments flexibilityEstimates 
+clear similarityEstimations communityAssignments flexibilityEstimates 
      end
 
 
