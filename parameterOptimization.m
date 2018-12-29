@@ -49,8 +49,8 @@ index = index+1;
 [zscore_all,viscore_all]=optimizationComparisons(realcommAssign);
 
 
-data(index,1) = zscore_all;
-data(index,2)= viscore_all;
+similarityEstimations(index,1) = zscore_all;
+similarityEstimations(index,2)= viscore_all;
 
 communityAssignments{index,1} = realcommAssign;
 communityAssignments{index,2} =qualityFunc;
@@ -61,7 +61,7 @@ end
  
 % Save the parameters    
   filename = 'gammaomegaparameter.mat';
-   save(fullfile(mainSubjectFolder,filename),'data');
+   save(fullfile(mainSubjectFolder,filename),'similarityEstimations');
 
    filename1 = 'communityAssignments.mat';
    save(fullfile(mainSubjectFolder,filename1), 'communityAssignments','flexibilityEstimates','commNumber');
@@ -69,7 +69,7 @@ end
     end  
 end
      
-clear data communityAssignments flexibilityEstimates commNumber 
+clear data communityAssignments flexibilityEstimates 
      end
 
 
