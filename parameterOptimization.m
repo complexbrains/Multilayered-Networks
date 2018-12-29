@@ -51,6 +51,7 @@ index = index+1;
 
 similarityEstimations(index,1) = zscore_all;
 similarityEstimations(index,2)= viscore_all;
+similarityEstimations(index,3)=mean(qualityFunc);
 
 communityAssignments{index,1} = realcommAssign;
 communityAssignments{index,2} =qualityFunc;
