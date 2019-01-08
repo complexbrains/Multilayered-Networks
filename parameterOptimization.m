@@ -49,28 +49,36 @@ index = index+1;
 [zscore_all,viscore_all]=optimizationComparisons(realcommAssign);
 
 
-similarityEstimations(index,1) = zscore_all;
-similarityEstimations(index,2)= viscore_all;
-similarityEstimations(index,3)=mean(qualityFunc);
-
+zscoreMatrix(i,j) = zscore_all;
+viscoreMatrix(i,j)= viscore_all;
+qualityMatrix(i,j)=mean(qualityFunc);
+indexPairs{i,j}=[gamma(i),omega(j)];
 communityAssignments{index,1} = realcommAssign;
 communityAssignments{index,2} =qualityFunc;
 
+
 for opt=1:100
-flexibilityEstimates{index,opt} = flexibility(realcommAssign{1,opt}', 'temp');
+    
+ flexibilityEstimatesAcrossOptimizations(:,opt)= flexibility(realcommAssign{1,opt}');
+
 end
+
+flexibilityEstimatesMatrix(i,j)= mean(mean(flexibilityEstimatesAcrossOptimizations,2),1);
+
+
  
 % Save the parameters    
   filename = 'gammaomegaparameter.mat';
-   save(fullfile(mainSubjectFolder,filename),'similarityEstimations');
+   save(fullfile(mainSubjectFolder,filename),'zscoreMatrix', 'viscoreMatrix' ,'qualityMatrix','indexPairs');
 
    filename1 = 'communityAssignments.mat';
-   save(fullfile(mainSubjectFolder,filename1), 'communityAssignments','flexibilityEstimates','commNumber');
+   save(fullfile(mainSubjectFolder,filename1), 'communityAssignments','flexibilityEstimatesMatrix');
+
    
     end  
 end
      
-clear similarityEstimations communityAssignments flexibilityEstimates 
+clear zscoreMatrix viscoreMatrix qualityMatrix indexPairs communityAssignments flexibilityEstimatesMatrix
      end
 
 
