@@ -14,8 +14,8 @@ function parameterOptimizationVisualization
 % multilayered networks
 % 
 % Input: 
-%       - Loads each participant's similarity estimates across pair of
-%       parameters
+%       - Loads each participant's similarity estimates of layerwise community topology 
+%        across pair of structural and temporal resolution parameters
 % Output:
 %       - Plots of the similarity estimates
 %       
@@ -47,7 +47,6 @@ for subjectNum=1:size(subjectPool,2)
     filename = 'communityAssignments.mat';
     load(fullfile(mainSubjectFolder,filename));
       
- 
 
 
 %% Plot the similarity matrices
@@ -65,7 +64,6 @@ for subjectNum=1:size(subjectPool,2)
     set(gca,'XTickLabelRotation',45);   
     title('Variance Across Optimizations');
     saveas(h, fullfile(mainSubjectFolder,sprintf('Variance_%s',subjectPool{subjectNum})), 'png')
-    
     
     
 % Zscore similarity matrix    
