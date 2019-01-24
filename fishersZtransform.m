@@ -44,6 +44,3 @@ zValue = (z_score1-z_score2)/sqrt(1/(sampleNum1-3)+1/(sampleNum2-3));
 
 % Estimate p
 p = (1-normcdf(abs(zValue),0,1))*2;
-
-
-end
