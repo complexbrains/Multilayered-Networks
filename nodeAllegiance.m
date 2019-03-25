@@ -1,4 +1,4 @@
-function [nodeAllegianceMatrix,nodeAllegianceMatrixROIs] = nodeAllegiance(realcommAssign,roiList)
+function [nodeAllegianceMatrix,nodeAllegianceMatrixROIs] = nodeAllegiance(consensusModularityAssignment,roiList)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Script nodeAllegiance.m 
 %
@@ -8,8 +8,8 @@ function [nodeAllegianceMatrix,nodeAllegianceMatrixROIs] = nodeAllegiance(realco
 % . 
 % 
 % Input: 
-%       - realcommAssign: Community distribution outcome of the
-%       LouvainCommunutiyEstimate.m function
+%       - consensusModularityAssignment: Consensus community distribution outcome of the
+%       zrand.m function 
 %        - roiList: A cell array of ROIs(nodes) that has been used in connectivity
 %        estimation.
 %
@@ -33,18 +33,17 @@ function [nodeAllegianceMatrix,nodeAllegianceMatrixROIs] = nodeAllegiance(realco
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-for layer = 1: size(realcommAssign,2)
+for layer = 1: size(consensusModularityAssignment,2)
     
-    communitySizeofLayer = max(realcommAssign(:,layer));
+    communitySizeofLayer = max(consensusModularityAssignment(:,layer));
 
         
         for commSize=1:communitySizeofLayer
                 k=1;
-    for node=1:size(realcommAssign,1)
+    for node=1:size(consensusModularityAssignment,1)
         
         
-        if realcommAssign(node,layer)==commSize
+        if consensusModularityAssignment(node,layer)==commSize
             nodeAllegianceMatrix{layer}{k,commSize}=node;
             k=k+1;
         end
